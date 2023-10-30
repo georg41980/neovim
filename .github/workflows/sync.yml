@@ -1,0 +1,19 @@
+name: Sync with GitHub
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Sync changes
+        run: |
+          git pull origin master
+          git push
